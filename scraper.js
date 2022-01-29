@@ -12,8 +12,18 @@ const puppeteer = require('puppeteer');
     const images = await page.evaluate(() =>
         Array.from(document.querySelectorAll('div.item > div > a > img')).map(data => data.src)
     )
-    console.log('images:', images);
-    console.log('title:', title);
+
+    const div = await page.evaluate(() =>
+        Array.from(document.querySelectorAll('div.item > div')).map(data => ({
+            title: data.querySelector('h4.BiggerText').innerText.trim(),
+            price: data.querySelector('span.PriceFont').innerText.trim(),
+            img: data.querySelector('a > img').src
+        }))
+    )
+
+    console.log('div:', div);
+    // console.log('images:', images);
+    // console.log('title:', title);
 
     await browser.close();
 })();
