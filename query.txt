@@ -1,0 +1,11 @@
+title:        
+Array.from(document.querySelectorAll('a.BiggerText')).map(data => data.innerText));
+
+img:
+Array.from(document.querySelectorAll('div.item > div > a > img')).map(data => data.src)
+
+scraping site url:
+https://www.whatmobile.com.pk/Samsung_Mobiles_Prices
+
+library
+https://github.com/puppeteer/puppeteer
